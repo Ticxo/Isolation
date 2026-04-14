@@ -106,7 +106,7 @@ export default function MouseParallax() {
 
         const currentLineText = TEXT_LINES[visibleLineCount - 1]?.text ?? "";
         const wordCount = currentLineText.trim().split(/\s+/).filter(Boolean).length;
-        const averageReadingWpm = 200;
+        const averageReadingWpm = 100;
         const estimatedReadTimeMs = Math.round((wordCount / averageReadingWpm) * 60_000);
         const baseDelayMs = Math.min(12_000, Math.max(2_000, estimatedReadTimeMs + 600));
         const delayMs = visibleLineCount === 1 ? 5_000 : baseDelayMs;
