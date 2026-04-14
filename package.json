@@ -1,8 +1,9 @@
 {
-  "name": "in_isolation",
+  "name": "isolation",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://ticxo.github.io/Isolation/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
