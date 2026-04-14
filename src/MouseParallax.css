@@ -1,0 +1,40 @@
+.parallax {
+    --mx: 0;
+    --my: 0;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.75s ease-out;
+    pointer-events: none;
+}
+
+.bg {
+    transform: translate(
+            calc(var(--mx) * -30px),
+            calc(var(--my) * -30px)
+    );
+}
+
+.mid {
+    transform: translate(
+            calc(var(--mx) * -45px),
+            calc(var(--my) * -45px)
+    );
+}
+
+.mid2 {
+    transform: translate(
+            calc(var(--mx) * -75px),
+            calc(var(--my) * -75px)
+    );
+}
+
+.fg {
+    transform: translate(
+            0,
+            calc(var(--my) * -90px)
+    );
+}
