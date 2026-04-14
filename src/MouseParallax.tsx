@@ -141,6 +141,12 @@ export default function MouseParallax() {
         (visibleLineCount < 5 || isLineFiveFadeComplete);
     const areHoverDialoguesEnabled =
         visibleLineCount >= 5 && isLineFiveFadeComplete;
+    const canSkipSequence = !areHoverDialoguesEnabled;
+
+    const handleSkipSequence = () => {
+        setVisibleLineCount(TEXT_LINES.length);
+        setIsLineFiveFadeComplete(true);
+    };
 
     return (
         <div className={"flex flex-col 2xl:flex-row parallax w-screen h-screen justify-start items-center bg-gray-950"}>
@@ -235,15 +241,26 @@ export default function MouseParallax() {
                     </div>
                 </div>
             </div>
-            <div className={'flex flex-col text-white flex-1 min-w-0 text-center gap-3 p-4'}>
-                {TEXT_LINES.map((line, index) => (
-                    <p
-                        key={`${line.text.slice(0, 32)}-${index}`}
-                        className={`${line.className ?? ""} transition-opacity duration-1000 ${index < visibleLineCount ? "opacity-100" : "opacity-0"}`}
+            <div className={'flex flex-col flex-1 min-w-0'}>
+                <div className={'relative flex flex-col text-white flex-1 w-full text-center gap-3 p-4'}>
+                    {TEXT_LINES.map((line, index) => (
+                        <p
+                            key={`${line.text.slice(0, 32)}-${index}`}
+                            className={`${line.className ?? ""} transition-opacity duration-1000 ${index < visibleLineCount ? "opacity-100" : "opacity-0"}`}
+                        >
+                            {line.text}
+                        </p>
+                    ))}
+                </div>
+                {canSkipSequence && (
+                    <button
+                        type="button"
+                        onClick={handleSkipSequence}
+                        className="absolute bottom-4 right-4 rounded border border-white/60 bg-black/40 px-3 py-1 text-sm text-white transition-colors hover:bg-white/20"
                     >
-                        {line.text}
-                    </p>
-                ))}
+                        Skip {'>>'}
+                    </button>
+                )}
             </div>
         </div>
     );
