@@ -148,6 +148,20 @@ export default function MouseParallax() {
         setIsLineFiveFadeComplete(true);
     };
 
+    useEffect(() => {
+        const {body, documentElement} = document;
+        const previousBodyOverflow = body.style.overflow;
+        const previousHtmlOverflow = documentElement.style.overflow;
+
+        body.style.overflow = "hidden";
+        documentElement.style.overflow = "hidden";
+
+        return () => {
+            body.style.overflow = previousBodyOverflow;
+            documentElement.style.overflow = previousHtmlOverflow;
+        };
+    }, []);
+
     return (
         <div className={"flex flex-col 2xl:flex-row parallax w-screen h-screen justify-start items-center bg-gray-950"}>
             <div className={'relative w-[calc(min(150vh,100vw))] h-[calc(min(66.666vw,100vh))]'}>
@@ -160,7 +174,7 @@ export default function MouseParallax() {
                     <div className="layer bg">
                         <img
                             src={ramBackImage}
-                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"}`}
+                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full`}
                             alt={'img'}
                         />
                         <div className={'absolute right-0 top-[28.3%] w-[40.3%] h-[37.2%]'}>
@@ -180,11 +194,11 @@ export default function MouseParallax() {
                     <div className="layer mid">
                         <img
                             src={nalphaAriesImage}
-                            className={`${layerFadeClass} ${visibleLineCount >= 5 ? "opacity-100" : "opacity-0"}`}
+                            className={`${layerFadeClass} ${visibleLineCount >= 5 ? "opacity-100" : "opacity-0"} w-full h-full`}
                             alt={'img'}
                         />
                         <div className={'absolute left-[39.8%] top-[7.6%] w-[27.2%] h-[64.1%]'}>
-                            <HoverDialogue move={'top-0 -right-full'} enabled={areHoverDialoguesEnabled}>
+                            <HoverDialogue move={'top-0 left-full'} enabled={areHoverDialoguesEnabled}>
                                 <>
                                     <p>The celestial shepherd Nα Arietis.</p>
                                     <p>Her true identity remain one of - if not the biggest</p>
@@ -198,7 +212,7 @@ export default function MouseParallax() {
                     <div className="layer mid2">
                         <img
                             src={ramFrontImage}
-                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"}`}
+                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full`}
                             alt={'img'}
                         />
                         <div className={'absolute left-[35%] top-[59.9%] w-[40.3%] h-[37.2%]'}>
@@ -218,7 +232,7 @@ export default function MouseParallax() {
                     <div className="layer fg">
                         <img
                             src={handsImage}
-                            className={`absolute -bottom-12 ${layerFadeClass} ${visibleLineCount >= 1 ? "opacity-100" : "opacity-0"}`}
+                            className={`absolute -bottom-12 ${layerFadeClass} ${visibleLineCount >= 1 ? "opacity-100" : "opacity-0"} w-full h-full`}
                             alt={'img'}
                         />
                         <div className={'absolute left-0 top-[49.7%] w-[30%] h-[55.5%]'}>
