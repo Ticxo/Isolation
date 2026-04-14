@@ -176,7 +176,7 @@ export default function MouseParallax() {
                     <div className="layer bg">
                         <img
                             src={ramBackImage}
-                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full 
+                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full absolute -bottom-6
                                 mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]`}
                             alt={'img'}
                         />
@@ -216,7 +216,7 @@ export default function MouseParallax() {
                     <div className="layer mid2">
                         <img
                             src={ramFrontImage}
-                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full 
+                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full absolute -bottom-9
                                 mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]`}
                             alt={'img'}
                         />
