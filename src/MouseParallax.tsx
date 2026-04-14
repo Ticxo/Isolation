@@ -260,8 +260,9 @@ export default function MouseParallax() {
                     </div>
                 </div>
             </div>
-            <div className={'flex flex-col flex-1 min-w-0'}>
-                <div className={'relative flex flex-col text-white flex-1 w-full text-center gap-3 p-4'}>
+            <div className={'flex flex-col flex-1 min-w-0 h-full justify-center'}>
+                <div className={'flex-1'} />
+                <div className={'relative flex flex-col text-white w-full text-center gap-3 p-4'}>
                     {TEXT_LINES.map((line, index) => (
                         <p
                             key={`${line.text.slice(0, 32)}-${index}`}
@@ -271,15 +272,26 @@ export default function MouseParallax() {
                         </p>
                     ))}
                 </div>
-                {canSkipSequence && (
-                    <button
-                        type="button"
-                        onClick={handleSkipSequence}
-                        className="absolute bottom-4 right-4 rounded border border-white/60 bg-black/40 px-3 py-1 text-sm text-white transition-colors hover:bg-white/20"
-                    >
-                        Skip {'>>'}
-                    </button>
-                )}
+                <div className={'flex-1'} />
+                <div className={'flex flex-row p-2'}>
+                    {canSkipSequence && (
+                        <div className={'flex flex-row w-full justify-end'}>
+                            <button
+                                type="button"
+                                onClick={handleSkipSequence}
+                                className="rounded border border-white/60 bg-black/40 px-3 py-1 text-sm text-white transition-colors hover:bg-white/20 cursor-pointer"
+                            >
+                                Skip {'>>'}
+                            </button>
+                        </div>
+                    )}
+                    {!canSkipSequence && (
+                        <div className={'flex flex-row text-white justify-around w-full'}>
+                            <p>Illustration by <a href={'https://x.com/HimuraSoichiro'} className={'text-yellow-500'}>HimuraSoichiro</a></p>
+                            <p>Everything else by Ticxo</p>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
