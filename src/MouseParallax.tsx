@@ -1,6 +1,11 @@
 import {useEffect, useRef, useState} from "react";
 import "./MouseParallax.css";
 import HoverDialogue from "./components/HoverDialogue.tsx";
+import spaceImage from "./assets/space.webp";
+import ramBackImage from "./assets/ram_back.webp";
+import nalphaAriesImage from "./assets/nalpha_aries.webp";
+import ramFrontImage from "./assets/ram_front.webp";
+import handsImage from "./assets/hands.webp";
 
 type MousePosition = {
     x: number;
@@ -138,14 +143,14 @@ export default function MouseParallax() {
         <div className={"flex flex-col 2xl:flex-row parallax w-screen h-screen justify-start items-center bg-gray-950"}>
             <div className={'relative w-[calc(min(150vh,100vw))] h-[calc(min(66.666vw,100vh))]'}>
                 <img
-                    src={'src/assets/space.webp'}
+                    src={spaceImage}
                     className={`absolute w-full h-full ${layerFadeClass} ${visibleLineCount >= 3 ? "opacity-100" : "opacity-0"}`}
                     alt={'img'}
                 />
                 <div ref={containerRef} className="relative w-full h-full overflow-hidden">
                     <div className="layer bg">
                         <img
-                            src={'src/assets/ram_back.webp'}
+                            src={ramBackImage}
                             className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"}`}
                             alt={'img'}
                         />
@@ -165,7 +170,7 @@ export default function MouseParallax() {
                     </div>
                     <div className="layer mid">
                         <img
-                            src={'src/assets/nalpha_aries.webp'}
+                            src={nalphaAriesImage}
                             className={`${layerFadeClass} ${visibleLineCount >= 5 ? "opacity-100" : "opacity-0"}`}
                             alt={'img'}
                         />
@@ -183,7 +188,7 @@ export default function MouseParallax() {
                     </div>
                     <div className="layer mid2">
                         <img
-                            src={'src/assets/ram_front.webp'}
+                            src={ramFrontImage}
                             className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"}`}
                             alt={'img'}
                         />
@@ -203,7 +208,7 @@ export default function MouseParallax() {
                     </div>
                     <div className="layer fg">
                         <img
-                            src={'src/assets/hands.webp'}
+                            src={handsImage}
                             className={`absolute -bottom-12 ${layerFadeClass} ${visibleLineCount >= 1 ? "opacity-100" : "opacity-0"}`}
                             alt={'img'}
                         />
