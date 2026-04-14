@@ -21,7 +21,7 @@ const TEXT_LINES: Array<{text: string; className?: string}> = [
         text: "In about a month, their path shall meet with a planet known as Earth - where Gaia shears their wool by setting them ablaze with divine flame, dragging trails of auric stardust for men and machines to behold.",
     },
     {
-        text: "However, their journey resumes with haste, for they must move on to graze on stars and galaxies, till they return with their brilliance next year.",
+        text: "However, their journey resumes swiftly, as they must press on to graze on stars and galaxies, till they return with their brilliance next year.",
     },
     {
         text: "On your left is an image retrieved from the camera of our lost comrade, 84 years after his disappearance. Captured on April 15th, 2026, it is the only image evidence of the sacred cosmic shepherd - now given the Bayer Designation of Nα Arietis.",
@@ -112,7 +112,10 @@ export default function MouseParallax() {
         const delayMs = visibleLineCount === 1 ? 5_000 : baseDelayMs;
 
         const timeoutId = window.setTimeout(() => {
-            setVisibleLineCount((prev) => Math.min(prev + 1, TEXT_LINES.length));
+            setVisibleLineCount((prev) => {
+                const step = prev === TEXT_LINES.length - 2 ? 2 : 1;
+                return Math.min(prev + step, TEXT_LINES.length);
+            });
         }, delayMs);
 
         return () => {
@@ -121,7 +124,7 @@ export default function MouseParallax() {
     }, [visibleLineCount]);
 
     useEffect(() => {
-        if (visibleLineCount !== 5) return;
+        if (visibleLineCount < 5 || isLineFiveFadeComplete) return;
 
         const lineFiveFadeTimeoutId = window.setTimeout(() => {
             setIsLineFiveFadeComplete(true);
@@ -130,7 +133,7 @@ export default function MouseParallax() {
         return () => {
             window.clearTimeout(lineFiveFadeTimeoutId);
         };
-    }, [visibleLineCount]);
+    }, [visibleLineCount, isLineFiveFadeComplete]);
 
     const isRamVisible =
         visibleLineCount >= 2 &&
