@@ -39,7 +39,8 @@ export default function MouseParallax() {
     const mouseRef = useRef<MousePosition>({x: 0, y: 0});
     const [visibleLineCount, setVisibleLineCount] = useState(0);
     const [isLineFiveFadeComplete, setIsLineFiveFadeComplete] = useState(false);
-    const layerFadeClass = "transition-opacity duration-1000";
+    const layerFadeClass = "transition-all duration-1000";
+    const [handFocus, setHandFocus] = useState(false);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -234,14 +235,32 @@ export default function MouseParallax() {
                             </HoverDialogue>
                         </div>
                     </div>
+                    <div className={`absolute size-full transition-all duration-1000 ${handFocus ? 'backdrop-blur-xs' : 'backdrop-blur-none'} pointer-events-none`} />
                     <div className="layer fg">
                         <img
                             src={handsImage}
-                            className={`2xl:size-full absolute -bottom-12 ${layerFadeClass} ${visibleLineCount >= 1 ? "opacity-100" : "opacity-0"}`}
+                            className={`2xl:size-full absolute -bottom-12 ${layerFadeClass} ${visibleLineCount >= 1 ? "opacity-100" : "opacity-0"} ${handFocus ? 'blur-none' : 'blur-xs'}`}
                             alt={'img'}
                         />
-                        <div className={'absolute left-0 top-[49.7%] w-[30%] h-[55.5%]'}>
+                        <div className={'absolute left-0 top-[49.7%] w-[30%] h-[55.5%]'} onMouseEnter={() => setHandFocus(true)} onMouseLeave={() => setHandFocus(false)}>
                             <HoverDialogue move={'top-20 left-full'} enabled={areHoverDialoguesEnabled}>
+                                <>
+                                    <p>A lost astronaut whose identity was bleached and sandblasted by the passage of time.</p>
+                                    <br/>
+                                    <p>Theorized cause of disappearance:</p>
+                                    <p>Stray space debris puncturing the propulsion fuel reservoir, causing sudden</p>
+                                    <p>acceleration, thus breaking out of the spacecraft's gravitational tether.</p>
+                                    <br/>
+                                    <p>Estimated time of death:</p>
+                                    <p>- 1-2 weeks after the accident</p>
+                                    <br/>
+                                    <p>Theorized cause of death:</p>
+                                    <p>- Prolonged dehydration</p>
+                                </>
+                            </HoverDialogue>
+                        </div>
+                        <div className={'absolute right-0 top-[49.7%] w-[30%] h-[55.5%]'} onMouseEnter={() => setHandFocus(true)} onMouseLeave={() => setHandFocus(false)}>
+                            <HoverDialogue move={'top-20 right-full'} enabled={areHoverDialoguesEnabled}>
                                 <>
                                     <p>A lost astronaut whose identity was bleached and sandblasted by the passage of time.</p>
                                     <br/>
