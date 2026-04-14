@@ -167,14 +167,17 @@ export default function MouseParallax() {
             <div className={'relative w-[calc(min(150vh,100vw))] h-[calc(min(66.666vw,100vh))]'}>
                 <img
                     src={spaceImage}
-                    className={`absolute w-full h-full ${layerFadeClass} ${visibleLineCount >= 3 ? "opacity-100" : "opacity-0"}`}
+                    className={`absolute w-full h-full ${layerFadeClass} ${visibleLineCount >= 3 ? "opacity-100" : "opacity-0"} 
+                        mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]
+                        `}
                     alt={'img'}
                 />
                 <div ref={containerRef} className="relative w-full h-full overflow-hidden">
                     <div className="layer bg">
                         <img
                             src={ramBackImage}
-                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full`}
+                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full 
+                                mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]`}
                             alt={'img'}
                         />
                         <div className={'absolute right-0 top-[28.3%] w-[40.3%] h-[37.2%]'}>
@@ -194,7 +197,8 @@ export default function MouseParallax() {
                     <div className="layer mid">
                         <img
                             src={nalphaAriesImage}
-                            className={`${layerFadeClass} ${visibleLineCount >= 5 ? "opacity-100" : "opacity-0"} w-full h-full`}
+                            className={`${layerFadeClass} ${visibleLineCount >= 5 ? "opacity-100" : "opacity-0"} w-full h-full 
+                                mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]`}
                             alt={'img'}
                         />
                         <div className={'absolute left-[39.8%] top-[7.6%] w-[27.2%] h-[64.1%]'}>
@@ -212,7 +216,8 @@ export default function MouseParallax() {
                     <div className="layer mid2">
                         <img
                             src={ramFrontImage}
-                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full`}
+                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full 
+                                mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]`}
                             alt={'img'}
                         />
                         <div className={'absolute left-[35%] top-[59.9%] w-[40.3%] h-[37.2%]'}>
@@ -232,7 +237,7 @@ export default function MouseParallax() {
                     <div className="layer fg">
                         <img
                             src={handsImage}
-                            className={`absolute -bottom-12 ${layerFadeClass} ${visibleLineCount >= 1 ? "opacity-100" : "opacity-0"} w-full h-full`}
+                            className={`absolute -bottom-12 ${layerFadeClass} ${visibleLineCount >= 1 ? "opacity-100" : "opacity-0"} w-full h-full `}
                             alt={'img'}
                         />
                         <div className={'absolute left-0 top-[49.7%] w-[30%] h-[55.5%]'}>
