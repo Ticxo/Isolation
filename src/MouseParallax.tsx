@@ -176,7 +176,7 @@ export default function MouseParallax() {
                     <div className="layer bg">
                         <img
                             src={ramBackImage}
-                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full absolute -bottom-6
+                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} 2xl:size-full absolute -bottom-3
                                 mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]`}
                             alt={'img'}
                         />
@@ -197,7 +197,7 @@ export default function MouseParallax() {
                     <div className="layer mid">
                         <img
                             src={nalphaAriesImage}
-                            className={`${layerFadeClass} ${visibleLineCount >= 5 ? "opacity-100" : "opacity-0"} w-full h-full 
+                            className={`${layerFadeClass} ${visibleLineCount >= 5 ? "opacity-100" : "opacity-0"} 2xl:size-full absolute -bottom-6
                                 mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]`}
                             alt={'img'}
                         />
@@ -216,7 +216,7 @@ export default function MouseParallax() {
                     <div className="layer mid2">
                         <img
                             src={ramFrontImage}
-                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} w-full h-full absolute -bottom-9
+                            className={`${layerFadeClass} ${isRamVisible ? "opacity-100" : "opacity-0"} 2xl:size-full absolute -bottom-9
                                 mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]`}
                             alt={'img'}
                         />
@@ -237,7 +237,7 @@ export default function MouseParallax() {
                     <div className="layer fg">
                         <img
                             src={handsImage}
-                            className={`absolute -bottom-12 ${layerFadeClass} ${visibleLineCount >= 1 ? "opacity-100" : "opacity-0"} w-full h-full `}
+                            className={`2xl:size-full absolute -bottom-12 ${layerFadeClass} ${visibleLineCount >= 1 ? "opacity-100" : "opacity-0"}`}
                             alt={'img'}
                         />
                         <div className={'absolute left-0 top-[49.7%] w-[30%] h-[55.5%]'}>
