@@ -206,7 +206,7 @@ export default function MouseParallax() {
                             <HoverDialogue move={'top-0 left-full'} enabled={areHoverDialoguesEnabled}>
                                 <>
                                     <p>The celestial shepherd Nα Arietis.</p>
-                                    <p>Her true identity remain one of - if not the biggest</p>
+                                    <p>Her true identity remains one of - if not the biggest</p>
                                     <p>mystery to our universe.</p>
                                     <br/>
                                     <p>Hopefully, we shall meet again someday.</p>
