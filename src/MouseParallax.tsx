@@ -305,7 +305,7 @@ export default function MouseParallax() {
                         </div>
                     )}
                     {!canSkipSequence && (
-                        <div className={'flex flex-row text-white justify-around w-full'}>
+                        <div className={'flex flex-row text-white justify-around w-full text-center'}>
                             <p>Illustration by <a href={'https://x.com/HimuraSoichiro'} className={'text-yellow-500'}>HimuraSoichiro</a></p>
                             <p>Everything else by Ticxo</p>
                         </div>
