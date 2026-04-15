@@ -182,7 +182,7 @@ export default function MouseParallax() {
                             alt={'img'}
                         />
                         <div className={'absolute right-0 top-[28.3%] w-[40.3%] h-[37.2%]'}>
-                            <HoverDialogue move={'top-0 left-full'} enabled={areHoverDialoguesEnabled}>
+                            <HoverDialogue move={'top-0 right-[75%]'} enabled={areHoverDialoguesEnabled}>
                                 <>
                                     <p>Arietids</p>
                                     <p>One of the strongest daytime meteor showers,</p>
